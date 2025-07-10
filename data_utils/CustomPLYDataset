@@ -1,0 +1,38 @@
+import torch
+import os
+import numpy as np
+import open3d as o3d
+from torch.utils.data import Dataset
+
+class CustomPLYDataset(Dataset):
+    def __init__(self, root, num_points=1024, split='test'):
+        self.root = root
+        self.num_points = num_points
+        self.classes = sorted(os.listdir(root))
+        self.class_to_idx = {cls: i for i, cls in enumerate(self.classes)}
+
+        self.data = []
+        for cls in self.classes:
+            cls_dir = os.path.join(root, cls)
+            for file in os.listdir(cls_dir):
+                if file.endswith('.ply'):
+                    self.data.append((os.path.join(cls_dir, file), self.class_to_idx[cls]))
+
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, idx):
+        file_path, label = self.data[idx]
+        pcd = o3d.io.read_point_cloud(file_path)
+        points = np.asarray(pcd.points)
+
+        # zufällig oder gleichmäßig auf num_points reduzieren
+        if points.shape[0] >= self.num_points:
+            choice = np.random.choice(points.shape[0], self.num_points, replace=False)
+        else:
+            choice = np.random.choice(points.shape[0], self.num_points, replace=True)
+        points = points[choice, :]
+
+        points = torch.tensor(points, dtype=torch.float32)
+        label = torch.tensor(label, dtype=torch.long)
+        return points, label
