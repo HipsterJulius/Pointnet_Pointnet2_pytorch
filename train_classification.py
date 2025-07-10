@@ -17,7 +17,7 @@ import argparse
 
 from pathlib import Path
 from tqdm import tqdm
-from data_utils.ModelNetDataLoader import ModelNetDataLoader
+from data_utils.CustomPLYDataset import CustomPLYDataset
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
@@ -30,7 +30,7 @@ def parse_args():
     parser.add_argument('--gpu', type=str, default='0', help='specify gpu device')
     parser.add_argument('--batch_size', type=int, default=24, help='batch size in training')
     parser.add_argument('--model', default='pointnet_cls', help='model name [default: pointnet_cls]')
-    parser.add_argument('--num_category', default=40, type=int, choices=[10, 40],  help='training on ModelNet10/40')
+    parser.add_argument('--num_category', default=40, type=int, choices=[4, 10, 40],  help='training on ModelNet10/40')
     parser.add_argument('--epoch', default=200, type=int, help='number of epoch in training')
     parser.add_argument('--learning_rate', default=0.001, type=float, help='learning rate in training')
     parser.add_argument('--num_point', type=int, default=1024, help='Point Number')
@@ -116,10 +116,9 @@ def main(args):
 
     '''DATA LOADING'''
     log_string('Load dataset ...')
-    data_path = 'data/modelnet40_normal_resampled/'
-
-    train_dataset = ModelNetDataLoader(root=data_path, args=args, split='train', process_data=args.process_data)
-    test_dataset = ModelNetDataLoader(root=data_path, args=args, split='test', process_data=args.process_data)
+    data_path = 'data/custom'
+    train_dataset = CustomPLYDataset(root=data_path, split='train', num_points=args.num_point)
+    test_dataset = CustomPLYDataset(root=data_path, split='test', num_points=args.num_point)
     trainDataLoader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=10, drop_last=True)
     testDataLoader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=10)
 
@@ -131,6 +130,15 @@ def main(args):
     shutil.copy('./train_classification.py', str(exp_dir))
 
     classifier = model.get_model(num_class, normal_channel=args.use_normals)
+    
+    for param in classifier.parameters():
+        param.requires_grad = False
+
+    # fc3 (letzter Klassifikator) ersetzen und freigeben
+    classifier.fc3 = torch.nn.Linear(256, num_class)
+    for param in classifier.fc3.parameters():
+        param.requires_grad = True
+
     criterion = model.get_loss()
     classifier.apply(inplace_relu)
 
@@ -139,17 +147,24 @@ def main(args):
         criterion = criterion.cuda()
 
     try:
-        checkpoint = torch.load(str(exp_dir) + '/checkpoints/best_model.pth')
-        start_epoch = checkpoint['epoch']
-        classifier.load_state_dict(checkpoint['model_state_dict'])
-        log_string('Use pretrain model')
+        #checkpoint = torch.load(str(exp_dir) + '/checkpoints/best_model.pth')
+        #start_epoch = checkpoint['epoch']
+        #classifier.load_state_dict(checkpoint['model_state_dict'])
+        #log_string('Use pretrain model')
+        checkpoint = torch.load('log/classification/pointnet2_ssg_wo_normals/checkpoints/best_model.pth')
+        start_epoch = 0
+        pretrained_dict = checkpoint['model_state_dict']
+        # Nur Layer übernehmen, die NICHT fc3 sind
+        filtered_dict = {k: v for k, v in pretrained_dict.items() if not k.startswith('fc3')}
+        classifier.load_state_dict(filtered_dict, strict=False)
+        log_string('Loaded pretrained model without fc3')
     except:
         log_string('No existing model, starting training from scratch...')
         start_epoch = 0
 
     if args.optimizer == 'Adam':
         optimizer = torch.optim.Adam(
-            classifier.parameters(),
+            classifier.fc3.parameters(),
             lr=args.learning_rate,
             betas=(0.9, 0.999),
             eps=1e-08,
@@ -166,6 +181,8 @@ def main(args):
 
     '''TRANING'''
     logger.info('Start training...')
+    log_string(f'trainDataLoader length: {len(trainDataLoader)}')
+    print(start_epoch)
     for epoch in range(start_epoch, args.epoch):
         log_string('Epoch %d (%d/%s):' % (global_epoch + 1, epoch + 1, args.epoch))
         mean_correct = []

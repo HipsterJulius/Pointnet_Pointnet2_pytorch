@@ -3,6 +3,8 @@ Author: Benny
 Date: Nov 2019
 """
 from data_utils.ModelNetDataLoader import ModelNetDataLoader
+from data_utils.CustomPLYDataset import CustomPLYDataset
+
 import argparse
 import numpy as np
 import os
@@ -16,6 +18,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
 sys.path.append(os.path.join(ROOT_DIR, 'models'))
 
+with open('data/custom/shape_names.txt', 'r') as f:
+    shape_names = [line.strip() for line in f.readlines()]
 
 def parse_args():
     '''PARAMETERS'''
@@ -23,7 +27,7 @@ def parse_args():
     parser.add_argument('--use_cpu', action='store_true', default=False, help='use cpu mode')
     parser.add_argument('--gpu', type=str, default='0', help='specify gpu device')
     parser.add_argument('--batch_size', type=int, default=24, help='batch size in training')
-    parser.add_argument('--num_category', default=40, type=int, choices=[10, 40],  help='training on ModelNet10/40')
+    parser.add_argument('--num_category', default=40, type=int, choices=[4, 10, 40],  help='training on ModelNet10/40')
     parser.add_argument('--num_point', type=int, default=1024, help='Point Number')
     parser.add_argument('--log_dir', type=str, required=True, help='Experiment root')
     parser.add_argument('--use_normals', action='store_true', default=False, help='use normals')
@@ -58,8 +62,12 @@ def test(model, loader, num_class=40, vote_num=1):
         mean_correct.append(correct.item() / float(points.size()[0]))
 
     class_acc[:, 2] = class_acc[:, 0] / class_acc[:, 1]
-    class_acc = np.mean(class_acc[:, 2])
+    per_class_acc = class_acc[:, 2]
+    class_acc = np.mean(per_class_acc)  
     instance_acc = np.mean(mean_correct)
+    for i in range(num_class):
+        print(f'{shape_names[i]:<12} Accuracy: {per_class_acc[i]:.4f}')
+
     return instance_acc, class_acc
 
 
@@ -90,8 +98,8 @@ def main(args):
     log_string('Load dataset ...')
     data_path = 'data/modelnet40_normal_resampled/'
 
-    test_dataset = ModelNetDataLoader(root=data_path, args=args, split='test', process_data=False)
-    testDataLoader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=10)
+    test_dataset = CustomPLYDataset(root='data/custom', num_points=args.num_point)
+    testDataLoader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=4)
 
     '''MODEL LOADING'''
     num_class = args.num_category
@@ -103,7 +111,9 @@ def main(args):
         classifier = classifier.cuda()
 
     checkpoint = torch.load(str(experiment_dir) + '/checkpoints/best_model.pth')
-    classifier.load_state_dict(checkpoint['model_state_dict'])
+    #classifier.load_state_dict(checkpoint['model_state_dict'])
+    state_dict = checkpoint['model_state_dict']
+    classifier.load_state_dict(state_dict, strict=False)
 
     with torch.no_grad():
         instance_acc, class_acc = test(classifier.eval(), testDataLoader, vote_num=args.num_votes, num_class=num_class)

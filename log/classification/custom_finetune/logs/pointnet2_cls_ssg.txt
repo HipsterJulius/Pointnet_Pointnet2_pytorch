@@ -1,0 +1,177 @@
+2025-07-10 22:58:19,971 - Model - INFO - PARAMETER ...
+2025-07-10 22:58:19,972 - Model - INFO - Namespace(batch_size=4, decay_rate=0.0001, epoch=30, gpu='0', learning_rate=0.0005, log_dir='custom_finetune', model='pointnet2_cls_ssg', num_category=4, num_point=1024, optimizer='Adam', process_data=False, use_cpu=False, use_normals=False, use_uniform_sample=False)
+2025-07-10 22:58:19,972 - Model - INFO - Load dataset ...
+2025-07-10 22:58:23,956 - Model - INFO - Loaded pretrained model without fc3
+2025-07-10 22:58:23,956 - Model - INFO - Start training...
+2025-07-10 22:58:23,957 - Model - INFO - trainDataLoader length: 5
+2025-07-10 22:58:23,957 - Model - INFO - Epoch 1 (1/30):
+2025-07-10 22:58:26,062 - Model - INFO - Train Instance Accuracy: 0.150000
+2025-07-10 22:58:28,776 - Model - INFO - Test Instance Accuracy: 0.300000, Class Accuracy: 0.187500
+2025-07-10 22:58:28,776 - Model - INFO - Best Instance Accuracy: 0.300000, Class Accuracy: 0.187500
+2025-07-10 22:58:28,777 - Model - INFO - Save model...
+2025-07-10 22:58:28,777 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:58:28,793 - Model - INFO - Epoch 2 (2/30):
+2025-07-10 22:58:31,358 - Model - INFO - Train Instance Accuracy: 0.350000
+2025-07-10 22:58:33,581 - Model - INFO - Test Instance Accuracy: 0.400000, Class Accuracy: 0.291667
+2025-07-10 22:58:33,581 - Model - INFO - Best Instance Accuracy: 0.400000, Class Accuracy: 0.291667
+2025-07-10 22:58:33,582 - Model - INFO - Save model...
+2025-07-10 22:58:33,582 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:58:33,600 - Model - INFO - Epoch 3 (3/30):
+2025-07-10 22:58:35,917 - Model - INFO - Train Instance Accuracy: 0.400000
+2025-07-10 22:58:38,457 - Model - INFO - Test Instance Accuracy: 0.400000, Class Accuracy: 0.291667
+2025-07-10 22:58:38,457 - Model - INFO - Best Instance Accuracy: 0.400000, Class Accuracy: 0.291667
+2025-07-10 22:58:38,457 - Model - INFO - Save model...
+2025-07-10 22:58:38,457 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:58:38,474 - Model - INFO - Epoch 4 (4/30):
+2025-07-10 22:58:40,973 - Model - INFO - Train Instance Accuracy: 0.350000
+2025-07-10 22:58:43,497 - Model - INFO - Test Instance Accuracy: 0.500000, Class Accuracy: 0.395833
+2025-07-10 22:58:43,497 - Model - INFO - Best Instance Accuracy: 0.500000, Class Accuracy: 0.395833
+2025-07-10 22:58:43,497 - Model - INFO - Save model...
+2025-07-10 22:58:43,497 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:58:43,516 - Model - INFO - Epoch 5 (5/30):
+2025-07-10 22:58:46,090 - Model - INFO - Train Instance Accuracy: 0.350000
+2025-07-10 22:58:48,631 - Model - INFO - Test Instance Accuracy: 0.500000, Class Accuracy: 0.489583
+2025-07-10 22:58:48,631 - Model - INFO - Best Instance Accuracy: 0.500000, Class Accuracy: 0.489583
+2025-07-10 22:58:48,631 - Model - INFO - Save model...
+2025-07-10 22:58:48,631 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:58:48,647 - Model - INFO - Epoch 6 (6/30):
+2025-07-10 22:58:51,176 - Model - INFO - Train Instance Accuracy: 0.400000
+2025-07-10 22:58:53,631 - Model - INFO - Test Instance Accuracy: 0.500000, Class Accuracy: 0.479167
+2025-07-10 22:58:53,631 - Model - INFO - Best Instance Accuracy: 0.500000, Class Accuracy: 0.489583
+2025-07-10 22:58:53,631 - Model - INFO - Save model...
+2025-07-10 22:58:53,631 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:58:53,649 - Model - INFO - Epoch 7 (7/30):
+2025-07-10 22:58:56,554 - Model - INFO - Train Instance Accuracy: 0.500000
+2025-07-10 22:58:59,015 - Model - INFO - Test Instance Accuracy: 0.700000, Class Accuracy: 0.729167
+2025-07-10 22:58:59,015 - Model - INFO - Best Instance Accuracy: 0.700000, Class Accuracy: 0.729167
+2025-07-10 22:58:59,016 - Model - INFO - Save model...
+2025-07-10 22:58:59,016 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:58:59,032 - Model - INFO - Epoch 8 (8/30):
+2025-07-10 22:59:01,438 - Model - INFO - Train Instance Accuracy: 0.400000
+2025-07-10 22:59:03,727 - Model - INFO - Test Instance Accuracy: 0.700000, Class Accuracy: 0.781250
+2025-07-10 22:59:03,727 - Model - INFO - Best Instance Accuracy: 0.700000, Class Accuracy: 0.781250
+2025-07-10 22:59:03,727 - Model - INFO - Save model...
+2025-07-10 22:59:03,727 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:59:03,743 - Model - INFO - Epoch 9 (9/30):
+2025-07-10 22:59:06,145 - Model - INFO - Train Instance Accuracy: 0.300000
+2025-07-10 22:59:09,085 - Model - INFO - Test Instance Accuracy: 0.600000, Class Accuracy: 0.572917
+2025-07-10 22:59:09,085 - Model - INFO - Best Instance Accuracy: 0.700000, Class Accuracy: 0.781250
+2025-07-10 22:59:09,085 - Model - INFO - Epoch 10 (10/30):
+2025-07-10 22:59:11,432 - Model - INFO - Train Instance Accuracy: 0.350000
+2025-07-10 22:59:13,627 - Model - INFO - Test Instance Accuracy: 0.750000, Class Accuracy: 0.781250
+2025-07-10 22:59:13,627 - Model - INFO - Best Instance Accuracy: 0.750000, Class Accuracy: 0.781250
+2025-07-10 22:59:13,628 - Model - INFO - Save model...
+2025-07-10 22:59:13,628 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:59:13,643 - Model - INFO - Epoch 11 (11/30):
+2025-07-10 22:59:16,165 - Model - INFO - Train Instance Accuracy: 0.650000
+2025-07-10 22:59:19,225 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.927083
+2025-07-10 22:59:19,225 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.927083
+2025-07-10 22:59:19,225 - Model - INFO - Save model...
+2025-07-10 22:59:19,225 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:59:19,244 - Model - INFO - Epoch 12 (12/30):
+2025-07-10 22:59:21,727 - Model - INFO - Train Instance Accuracy: 0.650000
+2025-07-10 22:59:24,673 - Model - INFO - Test Instance Accuracy: 0.850000, Class Accuracy: 0.895833
+2025-07-10 22:59:24,673 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.927083
+2025-07-10 22:59:24,673 - Model - INFO - Epoch 13 (13/30):
+2025-07-10 22:59:27,303 - Model - INFO - Train Instance Accuracy: 0.700000
+2025-07-10 22:59:29,739 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 22:59:29,739 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 22:59:29,739 - Model - INFO - Save model...
+2025-07-10 22:59:29,739 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:59:29,761 - Model - INFO - Epoch 14 (14/30):
+2025-07-10 22:59:32,555 - Model - INFO - Train Instance Accuracy: 0.600000
+2025-07-10 22:59:34,913 - Model - INFO - Test Instance Accuracy: 0.850000, Class Accuracy: 0.895833
+2025-07-10 22:59:34,913 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 22:59:34,913 - Model - INFO - Epoch 15 (15/30):
+2025-07-10 22:59:37,511 - Model - INFO - Train Instance Accuracy: 0.650000
+2025-07-10 22:59:40,217 - Model - INFO - Test Instance Accuracy: 0.850000, Class Accuracy: 0.812500
+2025-07-10 22:59:40,217 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 22:59:40,218 - Model - INFO - Epoch 16 (16/30):
+2025-07-10 22:59:42,762 - Model - INFO - Train Instance Accuracy: 0.750000
+2025-07-10 22:59:45,594 - Model - INFO - Test Instance Accuracy: 0.850000, Class Accuracy: 0.812500
+2025-07-10 22:59:45,595 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 22:59:45,595 - Model - INFO - Epoch 17 (17/30):
+2025-07-10 22:59:47,838 - Model - INFO - Train Instance Accuracy: 0.650000
+2025-07-10 22:59:50,221 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 22:59:50,221 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 22:59:50,222 - Model - INFO - Save model...
+2025-07-10 22:59:50,222 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:59:50,239 - Model - INFO - Epoch 18 (18/30):
+2025-07-10 22:59:52,423 - Model - INFO - Train Instance Accuracy: 0.600000
+2025-07-10 22:59:54,806 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 22:59:54,806 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 22:59:54,806 - Model - INFO - Save model...
+2025-07-10 22:59:54,806 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:59:54,822 - Model - INFO - Epoch 19 (19/30):
+2025-07-10 22:59:57,379 - Model - INFO - Train Instance Accuracy: 0.600000
+2025-07-10 22:59:59,697 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 22:59:59,697 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 22:59:59,697 - Model - INFO - Save model...
+2025-07-10 22:59:59,697 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 22:59:59,712 - Model - INFO - Epoch 20 (20/30):
+2025-07-10 23:00:02,333 - Model - INFO - Train Instance Accuracy: 0.700000
+2025-07-10 23:00:04,716 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:04,716 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:04,716 - Model - INFO - Save model...
+2025-07-10 23:00:04,716 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 23:00:04,733 - Model - INFO - Epoch 21 (21/30):
+2025-07-10 23:00:07,600 - Model - INFO - Train Instance Accuracy: 0.650000
+2025-07-10 23:00:09,845 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:09,845 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:09,845 - Model - INFO - Save model...
+2025-07-10 23:00:09,845 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 23:00:09,862 - Model - INFO - Epoch 22 (22/30):
+2025-07-10 23:00:12,287 - Model - INFO - Train Instance Accuracy: 0.500000
+2025-07-10 23:00:15,091 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:15,091 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:15,091 - Model - INFO - Save model...
+2025-07-10 23:00:15,091 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 23:00:15,109 - Model - INFO - Epoch 23 (23/30):
+2025-07-10 23:00:17,740 - Model - INFO - Train Instance Accuracy: 0.650000
+2025-07-10 23:00:20,213 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:20,213 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:20,213 - Model - INFO - Save model...
+2025-07-10 23:00:20,213 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 23:00:20,231 - Model - INFO - Epoch 24 (24/30):
+2025-07-10 23:00:22,542 - Model - INFO - Train Instance Accuracy: 0.650000
+2025-07-10 23:00:25,140 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:25,141 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:25,141 - Model - INFO - Save model...
+2025-07-10 23:00:25,141 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 23:00:25,157 - Model - INFO - Epoch 25 (25/30):
+2025-07-10 23:00:27,952 - Model - INFO - Train Instance Accuracy: 0.650000
+2025-07-10 23:00:30,303 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:30,303 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:30,303 - Model - INFO - Save model...
+2025-07-10 23:00:30,303 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 23:00:30,320 - Model - INFO - Epoch 26 (26/30):
+2025-07-10 23:00:32,990 - Model - INFO - Train Instance Accuracy: 0.800000
+2025-07-10 23:00:35,238 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:35,238 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:35,238 - Model - INFO - Save model...
+2025-07-10 23:00:35,238 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 23:00:35,255 - Model - INFO - Epoch 27 (27/30):
+2025-07-10 23:00:38,068 - Model - INFO - Train Instance Accuracy: 0.550000
+2025-07-10 23:00:40,543 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:40,543 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:40,544 - Model - INFO - Save model...
+2025-07-10 23:00:40,544 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 23:00:40,560 - Model - INFO - Epoch 28 (28/30):
+2025-07-10 23:00:43,678 - Model - INFO - Train Instance Accuracy: 0.550000
+2025-07-10 23:00:46,426 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:46,426 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:46,426 - Model - INFO - Save model...
+2025-07-10 23:00:46,426 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 23:00:46,442 - Model - INFO - Epoch 29 (29/30):
+2025-07-10 23:00:48,638 - Model - INFO - Train Instance Accuracy: 0.900000
+2025-07-10 23:00:51,142 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:51,142 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:51,142 - Model - INFO - Save model...
+2025-07-10 23:00:51,142 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 23:00:51,158 - Model - INFO - Epoch 30 (30/30):
+2025-07-10 23:00:53,536 - Model - INFO - Train Instance Accuracy: 0.750000
+2025-07-10 23:00:55,995 - Model - INFO - Test Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:55,996 - Model - INFO - Best Instance Accuracy: 0.900000, Class Accuracy: 0.937500
+2025-07-10 23:00:55,996 - Model - INFO - Save model...
+2025-07-10 23:00:55,996 - Model - INFO - Saving at log/classification/custom_finetune/checkpoints/best_model.pth
+2025-07-10 23:00:56,013 - Model - INFO - End of training...
