@@ -1,4 +1,0 @@
-car
-bike
-pedestrian
-truck
